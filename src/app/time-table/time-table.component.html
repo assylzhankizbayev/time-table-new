@@ -7,11 +7,11 @@
         <td class="cell cab">Каб. №</td>
         <td class="cell job">Специалист</td>
         <td class="cell name">ФИО врача</td>
-        <td class="cell time" [class.active]="true">Пн</td>
-        <td class="cell time">Вт</td>
-        <td class="cell time">Ср</td>
-        <td class="cell time">Чт</td>
-        <td class="cell time">Пт</td>
+        <td class="cell time" [class.active]="currentWeekDay === 1">Пн</td>
+        <td class="cell time" [class.active]="currentWeekDay === 2">Вт</td>
+        <td class="cell time" [class.active]="currentWeekDay === 3">Ср</td>
+        <td class="cell time" [class.active]="currentWeekDay === 4">Чт</td>
+        <td class="cell time" [class.active]="currentWeekDay === 5">Пт</td>
         <td class="cell time" *ngIf="workingDays > 5">Сб</td>
       </tr>
     </thead>
@@ -27,7 +27,7 @@
         <ng-container *ngFor="let time of user.times; index as i">
           <td
             class="cell time"
-            [class.active]="i === 0"
+            [class.active]="currentWeekDay === i + 1"
             *ngIf="i < workingDays"
           >
             {{ time }}

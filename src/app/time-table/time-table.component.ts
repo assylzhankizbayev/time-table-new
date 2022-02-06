@@ -11,7 +11,7 @@ import { UsersService } from '../service/users.service';
 export class TimeTableComponent implements OnInit {
   data$: Observable<User>;
   workingDays = 5;
-  day = new Date().getDay();
+  currentWeekDay = new Date().getDay();
 
   constructor(private usersService: UsersService) {}
 
