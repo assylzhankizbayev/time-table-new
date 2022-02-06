@@ -6,15 +6,19 @@ import { UsersService } from '../service/users.service';
 @Component({
   selector: 'app-time-table',
   templateUrl: './time-table.component.html',
-  styleUrls: ['./time-table.component.scss']
+  styleUrls: ['./time-table.component.scss'],
 })
 export class TimeTableComponent implements OnInit {
   data$: Observable<User>;
+  workingDays = 5;
+  day = new Date().getDay();
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService) {}
 
   ngOnInit() {
     this.data$ = this.usersService.users;
+    this.data$.subscribe((value) => {
+      console.log(value);
+    });
   }
-
 }

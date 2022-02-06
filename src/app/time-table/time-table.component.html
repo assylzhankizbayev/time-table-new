@@ -7,21 +7,32 @@
         <td class="cell cab">Каб. №</td>
         <td class="cell job">Специалист</td>
         <td class="cell name">ФИО врача</td>
-        <td class="cell time">пн</td>
-        <td class="cell time">вт</td>
-        <td class="cell time">ср</td>
-        <td class="cell time">чт</td>
-        <td class="cell time">пт</td>
-        <td class="cell time">сб</td>
-        <!-- <td class="cell time">вс</td> -->
+        <td class="cell time" [class.active]="true">Пн</td>
+        <td class="cell time">Вт</td>
+        <td class="cell time">Ср</td>
+        <td class="cell time">Чт</td>
+        <td class="cell time">Пт</td>
+        <td class="cell time" *ngIf="workingDays > 5">Сб</td>
       </tr>
     </thead>
     <tbody class="table-body">
-      <tr class="row" [class.even]="even" *ngFor="let user of userData?.users; even as even">
+      <tr
+        class="row"
+        [class.even]="even"
+        *ngFor="let user of userData?.users; even as even"
+      >
         <td class="cell cab">{{ user.cabinet }}</td>
         <td class="cell job">{{ user.job }}</td>
         <td class="cell name">{{ user.name }}</td>
-        <td class="cell time" *ngFor="let time of user.times">{{ time }}</td>
+        <ng-container *ngFor="let time of user.times; index as i">
+          <td
+            class="cell time"
+            [class.active]="i === 0"
+            *ngIf="i < workingDays"
+          >
+            {{ time }}
+          </td>
+        </ng-container>
       </tr>
     </tbody>
   </table>

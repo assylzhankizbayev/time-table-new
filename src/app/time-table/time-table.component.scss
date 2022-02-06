@@ -1,18 +1,24 @@
+$bgcColor: #00684e;
+$borderColor: #588469;
+$limeGreen: #4cbb17;
+$white: #fff;
+
 .page-title {
-  background-color: rgb(0, 12, 83);
+  background-color: $bgcColor;
   color: #fff;
   font-size: 160%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0 0;
+  margin: 0;
+  padding: 12px 0 8px;
   height: 50px;
 }
 
 .time-table {
   width: 100%;
   height: 100%;
-  background-color: rgb(2, 26, 163);
+  background-color: $bgcColor;
 }
 
 .table {
@@ -20,33 +26,36 @@
   border: none;
 
   .row {
-    height: 60px;
+    background-color: $bgcColor;
+    height: 50px;
   }
 
   .cell {
+    color: $white;
+    border: 0.5px solid $borderColor;
+    border-collapse: collapse;
+
+    &.active {
+      border-color: $white;
+      border-left-width: 2px;
+      border-right-width: 2px;
+      background-color: $limeGreen;
+      font-weight: 600;
+    }
+
     &:first-child {
-      padding-left: 4rem;
+      padding-left: 2rem;
     }
 
     &:last-child {
-      padding-right: 4rem;
+      padding-right: 2rem;
     }
   }
 
-  .time {
-    text-transform: uppercase;
-  }
-
   &-head {
-    .row {
-      background-color: rgb(2, 4, 131);
-
-      .cell {
-        color: #fff;
-        font-size: 140%;
-        font-weight: 600;
-        text-align: center;
-      }
+    .row .cell {
+      font-size: 140%;
+      text-align: center;
     }
   }
 
@@ -55,22 +64,17 @@
       text-transform: capitalize;
     }
 
-    .row {
-      background-color: rgb(2, 26, 163);
-
-      &.even {
-        background-color: rgb(0, 32, 216);
-      }
-
-      .cell {
-        color: #fff;
-        font-size: 130%;
-        text-align: center;
-      }
+    .row .cell {
+      font-size: 130%;
+      text-align: center;
     }
   }
 }
 
 .time {
-  width: 170px;
+  width: 150px;
+}
+
+.job {
+  width: 180px;
 }
