@@ -23,7 +23,7 @@
       >
         <td class="cell cab">{{ user.cabinet }}</td>
         <td class="cell job">{{ user.job }}</td>
-        <td class="cell name">{{ user.name }}</td>
+        <td class="cell name" [innerHTML]="user.name"></td>
         <ng-container *ngFor="let time of user.times; index as i">
           <td
             class="cell time"

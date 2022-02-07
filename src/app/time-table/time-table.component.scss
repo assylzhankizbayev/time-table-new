@@ -2,6 +2,7 @@ $bgcColor: #00684e;
 $borderColor: #588469;
 $limeGreen: #4cbb17;
 $white: #fff;
+// @import "../../assets/styles/colors.scss";
 
 .page-title {
   background-color: $bgcColor;
@@ -27,7 +28,7 @@ $white: #fff;
 
   .row {
     background-color: $bgcColor;
-    height: 50px;
+    height: 42px;
   }
 
   .cell {
