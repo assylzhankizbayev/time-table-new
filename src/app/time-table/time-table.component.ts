@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { UsersService } from '../service/users.service';
 
@@ -11,7 +12,9 @@ import { UsersService } from '../service/users.service';
 export class TimeTableComponent implements OnInit {
   data$: Observable<User>;
   workingDays = 5;
-  currentWeekDay = new Date().getDay();
+  currentWeekDay$: Observable<number> = timer(0, 30000).pipe(
+    map(() => new Date().getDay())
+  );
 
   constructor(private usersService: UsersService) {}
 

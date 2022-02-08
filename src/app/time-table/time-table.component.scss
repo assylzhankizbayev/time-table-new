@@ -1,5 +1,6 @@
 $bgcColor: #00684e;
 $borderColor: #588469;
+$evenRowColor: #007054;
 $limeGreen: #4cbb17;
 $white: #fff;
 // @import "../../assets/styles/colors.scss";
@@ -7,7 +8,7 @@ $white: #fff;
 .page-title {
   background-color: $bgcColor;
   color: #fff;
-  font-size: 160%;
+  font-size: 130%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,22 +27,49 @@ $white: #fff;
   width: 100%;
   border: none;
 
+  &-head {
+    .cell:not(.cab) {
+      text-align: center;
+    }
+  }
+
   .row {
     background-color: $bgcColor;
     height: 42px;
+
+    &.even {
+      background-color: $evenRowColor;
+    }
   }
 
   .cell {
     color: $white;
     border: 0.5px solid $borderColor;
     border-collapse: collapse;
+    font-size: 110%;
+    line-height: 1;
+    padding: 0 0.875rem;
+
+    &.time {
+      padding: 0;
+      width: 150px;
+      text-align: center;
+    }
+
+    &.job {
+      width: 160px;
+    }
+
+    // &.name {
+    //   font-size: 120%;
+    // }
 
     &.active {
       border-color: $white;
       border-left-width: 2px;
       border-right-width: 2px;
       background-color: $limeGreen;
-      font-weight: 600;
+      // font-weight: 600;
     }
 
     &:first-child {
@@ -52,30 +80,5 @@ $white: #fff;
       padding-right: 2rem;
     }
   }
-
-  &-head {
-    .row .cell {
-      font-size: 140%;
-      text-align: center;
-    }
-  }
-
-  &-body {
-    .name {
-      text-transform: capitalize;
-    }
-
-    .row .cell {
-      font-size: 130%;
-      text-align: center;
-    }
-  }
 }
 
-.time {
-  width: 150px;
-}
-
-.job {
-  width: 180px;
-}
